@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='Furhat client',
-      version='0.1',
+      version='0.2',
       description='Python Furhat client library',
       author='Patrik Jonell',
       author_email='me@patrikjonell.se',
