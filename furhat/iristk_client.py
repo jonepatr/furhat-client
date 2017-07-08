@@ -25,12 +25,12 @@ class IristkClient(object):
                 break
             data += packet.decode()
             if '\n' in data:
-                line, data = data.split('\n', 1)
+                data = data.replace('\n', '')
                 try:
-                    json_data = json.loads(line)
+                    json_data = json.loads(data)
                     callback(json_data)
-                except ValueError:
-                    pass
+                finally:
+                    data = ''
 
     def disconnect(self):
         self._is_listening = False
