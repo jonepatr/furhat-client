@@ -26,10 +26,13 @@ class IristkClient(object):
             data += packet.decode()
             if '\n' in data:
                 data = data.replace('\n', '')
-                try:
-                    json_data = json.loads(data)
-                    callback(json_data)
-                finally:
+                if not data.startswith('EVENT') and not data.startswith('SUBSCRIBE'):
+                    try:
+                        json_data = json.loads(data)
+                        callback(json_data)
+                    finally:
+                        data = ''
+                else:
                     data = ''
 
     def disconnect(self):

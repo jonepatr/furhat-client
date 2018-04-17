@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup, find_packages
 
-setup(name='Furhat client',
-      version='0.2',
+
+setup(name='furhat client',
+      version='0.1',
       description='Python Furhat client library',
       author='Patrik Jonell',
       author_email='me@patrikjonell.se',
-      packages=['furhat'],
-     )
+      packages=find_packages()
+)
